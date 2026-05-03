@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            margin: 0; 
+            padding: 5px; 
+            background-color: #000; 
+            color: white; 
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .monitor {
+            width: 100%;
+            max-width: 400px; /* Limita o tamanho em telas grandes */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .camera-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .label {
+            font-size: 12px;
+            padding: 4px;
+            background: #333;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="monitor">
+        <!-- Câmera 1 -->
+        <div class="camera-card">
+            <div class="label">CAM 11</div>
+            <img id="cam1" src="http://192.168.0.11/capture">
+        </div>
+
+        <!-- Câmera 2 -->
+        <div class="camera-card">
+            <div class="label">CAM 15</div>
+            <img id="cam2" src="http://192.168.0.15/capture">
+        </div>
+    </div>
+
+    <script>
+        function atualizar() {
+            const t = new Date().getTime();
+            // Adiciona o tempo no final para forçar o recarregamento da imagem
+            document.getElementById('cam1').src = "http://192.168.0.11/capture?t=" + t;
+            document.getElementById('cam2').src = "http://192.168.0.15/capture?t=" + t;
+        }
+
+        // Atualiza a cada 1000ms (1 segundo)
+        setInterval(atualizar, 1000);
+    </script>
+
+</body>
+</html>

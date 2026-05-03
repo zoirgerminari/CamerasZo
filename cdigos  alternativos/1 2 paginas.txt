@@ -1,0 +1,36 @@
+	
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; display: flex; flex-direction: column; align-items: center; }
+  .canvas-container { display: none; width: 100%; text-align: center; }
+  .active { display: block; }
+  canvas { border: 1px solid black; background: #eee; width: 90%; }
+</style>
+</head>
+<body>
+
+  <!-- Tela 1 -->
+  <div id="tela1" class="canvas-container active">
+    <h3>Canvas 1 - Desenho</h3>
+    <canvas id="c1"></canvas>
+    <br><button onclick="mudarPara('tela2')">Ir para Tela 2</button>
+  </div>
+
+  <!-- Tela 2 -->
+  <div id="tela2" class="canvas-container">
+    <h3>Canvas 2 - Gráfico</h3>
+    <canvas id="c2"></canvas>
+    <br><button onclick="mudarPara('tela1')">Voltar para Tela 1</button>
+  </div>
+
+  <script>
+    function mudarPara(id) {
+      document.querySelectorAll('.canvas-container').forEach(div => div.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
