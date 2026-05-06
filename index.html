@@ -54,8 +54,8 @@
 
          <!-- Câmera 3 -->
         <div class="camera-card">
-            <div class="label">CAM 15</div>
-            <img id="cam2" src="http://2.217.112.117:80/capture">
+            <div class="label">CAM 11</div>
+            <img id="cam1" src="http://2.217.112.117:80/capture">
         </div>
     </div>
 
@@ -63,9 +63,9 @@
         function atualizar() {
             const t = new Date().getTime();
             // Adiciona o tempo no final para forçar o recarregamento da imagem
-            document.getElementById('cam1').src = "http://192.168.0.11/capture?t=" + t;
+           
             document.getElementById('cam2').src = "http://192.168.0.15/capture?t=" + t;
-            document.getElementById('cam3').src = "http://2.217.112.117:80/capture?t=" + t;
+            document.getElementById('cam1').src = "http://2.217.112.117:80/capture?t=" + t;
         }
 
         // Atualiza a cada 1000ms (1 segundo)
